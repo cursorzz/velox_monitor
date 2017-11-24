@@ -1,0 +1,10 @@
+<tr class="redis">
+  <td scope="row">Redis</td>
+  <% if @redis_alive %>
+    <td>Running</td>
+    <td><%= link_to "Stop", redis_path, remote: true, method: :delete %></td>
+  <% else %>
+    <td>Not Running</td>
+    <td><button class=""</td>
+  <% end %>
+</tr>
