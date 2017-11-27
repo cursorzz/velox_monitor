@@ -30,7 +30,7 @@ workers ENV.fetch("WEB_CONCURRENCY") { 2 }
 # you need to make sure to reconnect any threads in the `on_worker_boot`
 # block.
 #
-if Rails.env.production?
+if ENV.fetch("RAILS_ENV") == "production"
   daemonize
   #
   preload_app!
