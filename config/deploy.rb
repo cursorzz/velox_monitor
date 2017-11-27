@@ -66,6 +66,8 @@ task :deploy do
     # invoke :'rails:db_migrate'
     invoke :'rails:assets_precompile'
     invoke :'deploy:cleanup'
+    invoke :'puma:stop'
+    invoke :'puma:start'
 
     on :launch do
       in_path(fetch(:current_path)) do
