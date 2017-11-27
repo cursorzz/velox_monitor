@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   root to: 'home#index'
   post "redis" => "redis#create"
   delete "redis" => "redis#destroy"
+  post "unicorn" => "unicorn#create"
+  delete "unicorn" => "unicorn#destroy"
 end

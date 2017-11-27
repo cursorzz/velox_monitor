@@ -30,14 +30,16 @@ workers ENV.fetch("WEB_CONCURRENCY") { 2 }
 # you need to make sure to reconnect any threads in the `on_worker_boot`
 # block.
 #
-daemonize
-#
-preload_app!
+if Rails.env.production?
+  daemonize
+  #
+  preload_app!
 
-pidfile '/home/deploy/monitor/shared/tmp/pids/puma.pid'
-state_path '/home/deploy/monitor/shared/tmp/pids/puma.state'
+  pidfile '/home/deploy/monitor/shared/tmp/pids/puma.pid'
+  state_path '/home/deploy/monitor/shared/tmp/pids/puma.state'
 
-stdout_redirect '/home/deploy/monitor/shared/log/puma.log', '/home/deploy/monitor/shared/log/puma-error.log'
+  stdout_redirect '/home/deploy/monitor/shared/log/puma.log', '/home/deploy/monitor/shared/log/puma-error.log'
+end
 
 
 # If you are preloading your application and using Active Record, it's
