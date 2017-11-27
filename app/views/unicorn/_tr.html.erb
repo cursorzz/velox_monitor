@@ -1,0 +1,11 @@
+<% alive = @unicorn.alive? %>
+<tr class="unicorn">
+  <td scope="row">Unicorn (App Web Server)</td>
+  <% if alive %>
+    <td class="text-success">Running</td>
+    <td><%= link_to "Stop", unicorn_path, remote: true, method: :delete, data: {confirm: "are you sure?"}, class: "btn btn-danger" %></td>
+  <% else %>
+    <td class="text-danger">Not Running</td>
+    <td><%= link_to "Start", unicorn_path, remote: true, method: :post, class: "btn btn-primary" %></td>
+  <% end %>
+</tr>

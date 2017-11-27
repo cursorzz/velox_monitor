@@ -1,6 +1,6 @@
 <% alive = @redis.alive? %>
 <tr class="redis">
-  <td scope="row">Redis</td>
+  <td scope="row">Redis (Queue Server)</td>
   <% if alive %>
     <td class="text-success">Running</td>
     <td><%= link_to "Stop", redis_path, remote: true, method: :delete, data: {confirm: "are you sure?"}, class: "btn btn-danger" %></td>
