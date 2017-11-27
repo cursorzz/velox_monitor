@@ -1,5 +1,5 @@
 class RemoteUnicorn
-  include RemoteCall
+  include ::RemoteCall
 
   def alive?
     result = run %{
@@ -9,7 +9,7 @@ class RemoteUnicorn
         echo 0;
       fi
     }
-    result == "1"
+    result.split("\n").last == "1"
   end
 
   def restart!
